@@ -14,7 +14,7 @@ from label_studio_ml.utils import (
     get_single_tag_keys,
     DATA_UNDEFINED_NAME,
 )
-from label_studio_tools.core.utils.io import get_data_dir, get_local_path
+from label_studio_sdk._extensions.label_studio_tools.core.utils.io import get_data_dir, get_local_path
 from botocore.exceptions import ClientError
 from urllib.parse import urlparse
 
@@ -23,8 +23,8 @@ register_all_modules()
 
 # init mmdetection model
 # see docker-compose.yml for environment variables
-config_file = os.environ.get("CONFIG_FILE")
-checkpoint_file = os.environ.get("CHECKPOINT_FILE")
+config_file = os.environ.get("CONFIG_FILE", "yolov3_mobilenetv2_8xb24-320-300e_coco.py")
+checkpoint_file = os.environ.get("CHECKPOINT_FILE", "yolov3_mobilenetv2_320_300e_coco_20210719_215349-d18dff72.pth")
 device = os.environ.get("DEVICE", "cpu")
 logger.info(f"Load new model from: {config_file}, {checkpoint_file}")
 model = init_detector(config_file, checkpoint_file, device=device)
