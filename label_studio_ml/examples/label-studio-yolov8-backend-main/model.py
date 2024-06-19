@@ -16,7 +16,7 @@ from label_studio_ml.utils import get_single_tag_keys, get_local_path
 # print("IP Address: ", ip_address)
 
 LS_URL = "http://host.docker.internal:8080/"
-LS_API_TOKEN = "263e8bbb3ed867f7f92d70a4581ff076440dade0"
+LS_API_TOKEN = "5678afc70cb5096e38d48b4d60ba17e277045922"
 
 
 # Initialize class inhereted from LabelStudioMLBase
@@ -28,7 +28,7 @@ class YOLOv8Model(LabelStudioMLBase):
         # Initialize self variables
         self.from_name, self.to_name, self.value, self.classes = get_single_tag_keys(
             self.parsed_label_config, 'RectangleLabels', 'Image')
-        self.labels = ['capsules', 'tablets']
+        self.labels = ['opora']
         # Load model
         self.model = YOLO("best_det.pt")
 

@@ -1,4 +1,5 @@
 import warnings
+from segment_anything.utils import onnx
 from segment_anything.utils.onnx import SamOnnxModel
 from segment_anything import sam_model_registry, SamPredictor
 import torch
